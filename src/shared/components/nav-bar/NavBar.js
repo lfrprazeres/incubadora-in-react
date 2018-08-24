@@ -2,105 +2,121 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {Image} from '../'
 import './NavBar.css'
-
-class NavBar extends React.Component{
-    
+import { stack as Menu } from 'react-burger-menu'
+import Sizes from 'react-sizes'
+import './NavBarMobile.css'
+ 
+class NavBar extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            link:[{
-                label: false,
-                href: 'incubadora.lncc.br',
-                image: 'logoNav.png',
-                arrow: false,
-                subLink: false
-            },{
+            mobileVersion: false,
+            width: 0,
+            height: 0,
+            isLoaded: false,
+            navBarMobile: [{
                 label: 'A Incubadora',
-                href: '#',
-                image: false,
-                arrow: true,
-                subLink:[{
-                    text: 'Quem Somos',
-                    href: '/Quem-somos'
+                mobileLink: [{
+                    label: 'Quem Somos',
+                    href: '/quem-somos'
                 },{
-                    text: 'Regimento Interno',
-                    href: '/Regime-interno'  
+                    label: 'Regime Interno',
+                    href: '/regime-interno'
                 },{
-                    text: 'Equipe',
-                    href: '/Equipe'  
+                    label: 'Equipe',
+                    href: '/equipe'
                 }]
-                
             },{
                 label: 'Serviços',
-                href: '#',
-                image: false,
-                arrow: true,
-                subLink:[{
-                    text: 'Oportunidades',
-                    href: '/Oportunidades'
+                mobileLink: [{
+                    label: 'Oportunidades',
+                    href: '/oportunidades'
                 },{
-                    text: 'Banco de Patentes',
-                    href: '/Banco-de-Patentes'  
+                    label: 'Banco de patentes',
+                    href: '/banco-de-patentes'
                 },{
-                    text: 'Perguntas Frequentes',
-                    href: '/Perguntas-Frequentes'
+                    label: 'Perguntes Frequentes',
+                    href: '/perguntas-frequentes'
                 }]
-                
             },{
                 label: 'Empresas',
-                href: '#',
-                image: false,
-                arrow: true,
-                subLink:[{
-                    text: 'Empresas Residentes',
-                    href: '/Empresas-Residentes'
+                mobileLink: [{
+                    label: 'Empresas Residentes',
+                    href: '/empresas-residentes'
                 },{
-                    text: 'Empresas Graduadas',
-                    href: '/Empresas-Graduadas'  
+                    label: 'Empresas Graduadas',
+                    href: '/empresas-graduadas'
                 }]
             },{
                 label: 'Processo Seletivo',
-                href: '#',
-                image: false,
-                arrow: true,
-                subLink:[{
-                    text: 'Seleção',
-                    href: '/Selecao'
+                mobileLink: [{
+                    label: 'Seleção',
+                    href: '/selecao'
                 },{
-                    text: 'Edital 2018',
-                    href: '/edital' 
+                    label: 'Edital 2018',
+                    href: '/edital-2018'
                 }]
             },{
                 label: 'Contato',
-                href: '#',
-                image: false,
-                arrow: false,
+                mobileLink: false
             }]
         }
+        this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     }
-    render(){
-        const{link} = this.state;
-        return(
-            <nav>
-                <ul>
-                    {link.map((item,key) =>
-                        <li key={key}>
-                            {item.image && <Image source={item.image} className="imgNav"/>}
-                            {item.label && <Link to={item.href} > {item.label}</Link>}
-                            {item.subLink && <div className="dropdown-container">
-                            <ul className="dropdown">
-                                {item.subLink.map((subLinkItem, subLinkKey) =>
-                                    <li key={subLinkKey}>
-                                        <Link to={subLinkItem.href}> {subLinkItem.text} </Link>
-                                    </li>
-                                )}
-                            </ul>
-                        </div>}
-                        </li>
-                    )}
-                </ul>
-            </nav>
-        )
-    }
+    componentDidMount() {
+        this.updateWindowDimensions();
+        this.setState({
+            isLoaded: true
+        })
+        window.addEventListener('resize', this.updateWindowDimensions);
+      }
+      
+      componentWillUnmount() {
+        window.removeEventListener('resize', this.updateWindowDimensions);
+      }
+      
+      updateWindowDimensions() {
+        this.setState({ 
+            width: window.innerWidth, 
+            height: window.innerHeight 
+        })
+      }
+  render () {
+      const {isLoaded,width,navBarMobile} = this.state;
+      const mobile = width < 1700;
+    return (
+        <div>
+            {isLoaded 
+                ?
+                <div>
+                { mobile 
+                    ?
+                        <Menu pageWrapId={ "page-wrap" }  id="page-wrap" className="navBar" right>
+                            {navBarMobile.map((item,key) =>
+                                <ul key={key} className="navBarLabel">
+                                    {item.label}
+                                    {item.mobileLink.map((mobileItem,mobileKey) =>
+                                            <li key={mobileKey}> 
+                                                <Link to={mobileItem.href}> {mobileItem.label} </Link>
+                                            </li>
+                                        }
+                                    )}
+                                </ul>
+                            )}
+                        </Menu> 
+                    : 
+                    
+                        <div>
+                            
+                        </div>
+                    
+                }
+                </div>
+                : 
+                    <div> Loading... </div>
+            }
+        </div>
+    );
+  }
 }
 export default NavBar;
