@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom'
 import {Image} from '../'
 import './NavBar.css'
 import { stack as Menu } from 'react-burger-menu'
-import Sizes from 'react-sizes'
 import './NavBarMobile.css'
  
 class NavBar extends React.Component {
@@ -13,9 +12,9 @@ class NavBar extends React.Component {
             mobileVersion: false,
             width: 0,
             height: 0,
-            isLoaded: false,
             navBarMobile: [{
                 label: 'A Incubadora',
+                link: true,
                 mobileLink: [{
                     label: 'Quem Somos',
                     href: '/quem-somos'
@@ -28,6 +27,7 @@ class NavBar extends React.Component {
                 }]
             },{
                 label: 'Serviços',
+                link: false,
                 mobileLink: [{
                     label: 'Oportunidades',
                     href: '/oportunidades'
@@ -40,6 +40,7 @@ class NavBar extends React.Component {
                 }]
             },{
                 label: 'Empresas',
+                link: false,
                 mobileLink: [{
                     label: 'Empresas Residentes',
                     href: '/empresas-residentes'
@@ -49,6 +50,7 @@ class NavBar extends React.Component {
                 }]
             },{
                 label: 'Processo Seletivo',
+                link: false,
                 mobileLink: [{
                     label: 'Seleção',
                     href: '/selecao'
@@ -58,16 +60,15 @@ class NavBar extends React.Component {
                 }]
             },{
                 label: 'Contato',
-                mobileLink: false
+                href: '/contato',
+                mobileLink: false,
+                link: true
             }]
         }
         this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     }
     componentDidMount() {
         this.updateWindowDimensions();
-        this.setState({
-            isLoaded: true
-        })
         window.addEventListener('resize', this.updateWindowDimensions);
       }
       
@@ -82,40 +83,35 @@ class NavBar extends React.Component {
         })
       }
   render () {
-      const {isLoaded,width,navBarMobile} = this.state;
+      const {width,navBarMobile} = this.state;
       const mobile = width < 1700;
     return (
-        <div>
-            {isLoaded 
+            <div>
+            { mobile 
                 ?
-                <div>
-                { mobile 
-                    ?
-                        <Menu pageWrapId={ "page-wrap" }  id="page-wrap" className="navBar" right>
-                            {navBarMobile.map((item,key) =>
-                                <ul key={key} className="navBarLabel">
-                                    {item.label}
-                                    {item.mobileLink.map((mobileItem,mobileKey) =>
-                                            <li key={mobileKey}> 
-                                                <Link to={mobileItem.href}> {mobileItem.label} </Link>
-                                            </li>
-                                        }
+                    <Menu pageWrapId={ "page-wrap" }  id="page-wrap" className="navBar" right>
+                        {navBarMobile.map((item,key) =>
+                            <ul key={key} className="navBarLabel">
+                                {item.mobileLink && item.label}
+                                {!item.mobileLink && <Link to={item.href}> {item.label} </Link>}
+                                {item.mobileLink && <div className="mobileLinksContainer">
+                                    {item.mobileLink.map((mobileLinkItem,mobileLinkKey) =>
+                                        <li key={mobileLinkKey}>
+                                            <Link to={mobileLinkItem.href}> {mobileLinkItem.label} </Link>
+                                        </li>
                                     )}
-                                </ul>
-                            )}
-                        </Menu> 
-                    : 
-                    
-                        <div>
-                            
-                        </div>
-                    
-                }
-                </div>
+                                </div>}
+                            </ul>
+                        )}
+                    </Menu> 
                 : 
-                    <div> Loading... </div>
+                
+                    <div>
+                        it is not mobile
+                    </div>
+                
             }
-        </div>
+            </div>
     );
   }
 }
