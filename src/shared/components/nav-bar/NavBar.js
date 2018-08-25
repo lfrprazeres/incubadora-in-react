@@ -12,7 +12,7 @@ class NavBar extends React.Component {
             mobileVersion: false,
             width: 0,
             height: 0,
-            navBarMobile: [{
+            navBar: [{
                 label: 'A Incubadora',
                 link: false,
                 mobileLink: [{
@@ -83,14 +83,18 @@ class NavBar extends React.Component {
         })
       }
   render () {
-      const {width,navBarMobile} = this.state;
-      const mobile = width < 2000;
+      const {width,navBar} = this.state;
+      const mobile = width < 769;
     return (
             <div>
             { mobile 
                 ?
-                    <Menu pageWrapId={ "page-wrap" }  id="page-wrap" className="navBar" right>
-                        {navBarMobile.map((item,key) =>
+                <nav className="navBarMobile">
+                    <div className="logoNavMobile">
+                        <Image source="logoNav.png" />
+                    </div>
+                    <Menu pageWrapId={ "page-wrap" } id="page-wrap" right>
+                        {navBar.map((item,key) =>
                             <ul key={key} className="navBarLabel">
                                 {item.mobileLink && !item.link && <p className="navBarMobileLink">{item.label}</p>}
                                 {item.link && <Link to={item.href} className="navBarMobileLink clickable"> {item.label} </Link>}
@@ -103,12 +107,20 @@ class NavBar extends React.Component {
                                 </div>}
                             </ul>
                         )}
-                    </Menu> 
+                    </Menu>
+                </nav>
                 : 
                 
-                    <div>
-                        it is not mobile
-                    </div>
+                    <nav>
+                        <ul>
+                        {navBar.map((item,key) =>
+                            <li key={key}>
+                                {item.label}
+                                {item.href && <Link to={item.href}> {item.label}</Link>}
+                            </li>
+                        )}
+                        </ul>
+                    </nav>
                 
             }
             </div>

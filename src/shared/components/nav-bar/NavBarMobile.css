@@ -39,12 +39,31 @@
    
   .bm-overlay {
     background: rgba(0, 0, 0, 0.3);
+    top: 0;
+    left: 0;
+  }
+  .bm-menu-wrap{
+    top: 0;
   }
 
 /*          the end of burger menu property             */
 
+/* Nav  */
+.navBarMobile{
+  align-items: center;
+  display: flex;
+  height: 100px;
+  margin: 0 auto;
+  position: fixed;
+  width: 90%;
+}
+.logoNavMobile{
+  margin-left: 50px;
+}
+/* Inside the burger menu */
 .navBarLabel{
   width: 100%;
+  font-size: 18px;
 }
  .navBarMobileLink{
    color: #aaa;
@@ -54,13 +73,15 @@
  .mobileLinksContainer{
    margin-bottom: 30px;
  }
- .navBarMobileSubLink{
-   color: white;
-   margin: 10px 0 10px 20px;
-   transition: .2s ease;
+ .mobileLinksContainer li{
+  margin: 10px 0 10px 20px;
  }
-
  .clickable:hover {
   color: gray;
   width: 100%;
+ }
+
+ .clickable{ 
+  color: white;
+  transition: .2s ease;
  }
