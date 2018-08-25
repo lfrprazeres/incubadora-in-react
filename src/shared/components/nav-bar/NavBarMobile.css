@@ -19,7 +19,7 @@
   }
    
   .bm-menu {
-    background: #373a47;
+    background: #000220;
     padding: 2.5em 1.5em 0;
     font-size: 1.15em;
   }
@@ -41,6 +41,26 @@
     background: rgba(0, 0, 0, 0.3);
   }
 
-  .navBarLabel{
+/*          the end of burger menu property             */
 
-  }
+.navBarLabel{
+  width: 100%;
+}
+ .navBarMobileLink{
+   color: #aaa;
+   transition: .2s ease;
+   width: 100%;
+ }
+ .mobileLinksContainer{
+   margin-bottom: 30px;
+ }
+ .navBarMobileSubLink{
+   color: white;
+   margin: 10px 0 10px 20px;
+   transition: .2s ease;
+ }
+
+ .clickable:hover {
+  color: gray;
+  width: 100%;
+ }

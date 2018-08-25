@@ -14,7 +14,7 @@ class NavBar extends React.Component {
             height: 0,
             navBarMobile: [{
                 label: 'A Incubadora',
-                link: true,
+                link: false,
                 mobileLink: [{
                     label: 'Quem Somos',
                     href: '/quem-somos'
@@ -84,7 +84,7 @@ class NavBar extends React.Component {
       }
   render () {
       const {width,navBarMobile} = this.state;
-      const mobile = width < 1700;
+      const mobile = width < 2000;
     return (
             <div>
             { mobile 
@@ -92,12 +92,12 @@ class NavBar extends React.Component {
                     <Menu pageWrapId={ "page-wrap" }  id="page-wrap" className="navBar" right>
                         {navBarMobile.map((item,key) =>
                             <ul key={key} className="navBarLabel">
-                                {item.mobileLink && item.label}
-                                {!item.mobileLink && <Link to={item.href}> {item.label} </Link>}
+                                {item.mobileLink && !item.link && <p className="navBarMobileLink">{item.label}</p>}
+                                {item.link && <Link to={item.href} className="navBarMobileLink clickable"> {item.label} </Link>}
                                 {item.mobileLink && <div className="mobileLinksContainer">
                                     {item.mobileLink.map((mobileLinkItem,mobileLinkKey) =>
                                         <li key={mobileLinkKey}>
-                                            <Link to={mobileLinkItem.href}> {mobileLinkItem.label} </Link>
+                                            <Link to={mobileLinkItem.href} className="navBarMobileSubLink clickable"> {mobileLinkItem.label} </Link>
                                         </li>
                                     )}
                                 </div>}
