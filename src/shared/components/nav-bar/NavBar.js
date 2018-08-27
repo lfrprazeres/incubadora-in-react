@@ -9,7 +9,6 @@ class NavBar extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            mobileVersion: false,
             width: 0,
             height: 0,
             navBar: [{
@@ -111,15 +110,22 @@ class NavBar extends React.Component {
                 </nav>
                 : 
                 
-                    <nav>
-                        <ul>
-                        {navBar.map((item,key) =>
-                            <li key={key}>
-                                {item.label}
-                                {item.href && <Link to={item.href}> {item.label}</Link>}
-                            </li>
-                        )}
-                        </ul>
+                    <nav className="navBar">
+                        <div className="navBar-content">
+                            <div>
+                                <Link to="/">
+                                    <Image source="logoNav.png" />
+                                </Link>
+                            </div>
+                            <ul>
+                            {navBar.map((item,key) =>
+                                <li key={key}>
+                                    {!item.href && <p>{item.label}</p>}
+                                    {item.href && <Link to={item.href}> {item.label}</Link>}
+                                </li>
+                            )}
+                            </ul>
+                        </div>
                     </nav>
                 
             }
