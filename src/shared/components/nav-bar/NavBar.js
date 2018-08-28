@@ -14,7 +14,7 @@ class NavBar extends React.Component {
             navBar: [{
                 label: 'A Incubadora',
                 link: false,
-                mobileLink: [{
+                subLink: [{
                     label: 'Quem Somos',
                     href: '/quem-somos'
                 },{
@@ -27,7 +27,7 @@ class NavBar extends React.Component {
             },{
                 label: 'Serviços',
                 link: false,
-                mobileLink: [{
+                subLink: [{
                     label: 'Oportunidades',
                     href: '/oportunidades'
                 },{
@@ -40,7 +40,7 @@ class NavBar extends React.Component {
             },{
                 label: 'Empresas',
                 link: false,
-                mobileLink: [{
+                subLink: [{
                     label: 'Empresas Residentes',
                     href: '/empresas-residentes'
                 },{
@@ -50,7 +50,7 @@ class NavBar extends React.Component {
             },{
                 label: 'Processo Seletivo',
                 link: false,
-                mobileLink: [{
+                subLink: [{
                     label: 'Seleção',
                     href: '/selecao'
                 },{
@@ -60,7 +60,7 @@ class NavBar extends React.Component {
             },{
                 label: 'Contato',
                 href: '/contato',
-                mobileLink: false,
+                subLink: false,
                 link: true
             }]
         }
@@ -95,10 +95,10 @@ class NavBar extends React.Component {
                     <Menu pageWrapId={ "page-wrap" } id="page-wrap" right>
                         {navBar.map((item,key) =>
                             <ul key={key} className="navBarLabel">
-                                {item.mobileLink && !item.link && <p className="navBarMobileLink">{item.label}</p>}
+                                {item.subLink && !item.link && <p className="navBarMobileLink">{item.label}</p>}
                                 {item.link && <Link to={item.href} className="navBarMobileLink clickable"> {item.label} </Link>}
-                                {item.mobileLink && <div className="mobileLinksContainer">
-                                    {item.mobileLink.map((mobileLinkItem,mobileLinkKey) =>
+                                {item.subLink && <div className="mobileLinksContainer">
+                                    {item.subLink.map((mobileLinkItem,mobileLinkKey) =>
                                         <li key={mobileLinkKey}>
                                             <Link to={mobileLinkItem.href} className="navBarMobileSubLink clickable"> {mobileLinkItem.label} </Link>
                                         </li>
@@ -120,8 +120,15 @@ class NavBar extends React.Component {
                             <ul>
                             {navBar.map((item,key) =>
                                 <li key={key}>
-                                    {!item.href && <p>{item.label}</p>}
+                                    {!item.href && <p>{item.label}<i class="fa fa-angle-down"></i></p>}
                                     {item.href && <Link to={item.href}> {item.label}</Link>}
+                                    {item.subLink && <div className="subLinkContainer">
+                                    {item.subLink.map((subLinkItem,subLinkKey) =>
+                                        <li key={subLinkKey}>
+                                            <Link to={subLinkItem.href} className="subLink"> {subLinkItem.label} </Link>
+                                        </li>
+                                    )}
+                                </div>}
                                 </li>
                             )}
                             </ul>
