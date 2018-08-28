@@ -2,8 +2,8 @@
     position: fixed;
     width: 36px;
     height: 30px;
-    right: 30px;
-    top: 30px;
+    right: 25px;
+    top: 25px;
 }
 .bm-burger-bars {
     background: #373a47;
@@ -51,11 +51,12 @@
 /* Nav  */
 .navBarMobile{
   align-items: center;
+  background-color: white;
   display: flex;
   height: 70px;
   margin: 0 auto;
   position: fixed;
-  width: 90%;
+  width: 100%;
 }
 .logoNavMobile{
   margin-left: 50px;
