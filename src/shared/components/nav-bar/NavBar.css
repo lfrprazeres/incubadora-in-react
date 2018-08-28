@@ -93,3 +93,16 @@
   padding-left: 10px;
   width: 100%;
 }
+
+
+@media(max-width: 1024px) {
+  .navBar .navBar-content{
+    width: 90%;
+  }
+  .navBar .navBar-content > ul > li {
+    width: 20%;
+  }
+  .navBar .navBar-content > ul > li{
+    font-size: 12px;
+  }
+}
