@@ -1,0 +1,42 @@
+.homeBanner{
+    background-color: #000220;
+    padding-top: 70px;
+    
+}
+
+.homeBanner > div  a {
+    height: inherit;
+}
+.homeBanner > div {
+    margin: 0 auto;
+    width: 75%;
+}
+.homeBanner > div a > img {
+    width: 100%;
+}
+
+.homePage .homePage-content{
+    margin: 0 auto;
+    padding: 75px 0 40px 0;
+    width: 70%;
+}
+
+.homePage .homePage-content .LNCCImage{
+    margin-bottom: 10px;
+}
+.homePage .homePage-content .LNCCImage > img{
+    border: 2px solid #001330;
+    border-radius: 8px;
+    box-shadow: 0 14px 28px rgba(0,0,0,.4);
+    width: 100%;
+}
+.homePage .homePage-content > p {
+    margin: 20px 0;
+}
+
+.homePage .homePage-content > p > a {
+    color: #0645AD;
+}
+.homePage .homePage-content > p > a:hover {
+    color: #0000ff;
+}
