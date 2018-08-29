@@ -1,5 +1,7 @@
 import React from 'react'
-import './OpportunitiesTable.css'
+import {
+    DefaultTable
+} from '../../layouts'
 
 class OpportunitiesTable extends React.Component{
     constructor(props){
@@ -59,19 +61,16 @@ class OpportunitiesTable extends React.Component{
     render(){
         const { opportunity } = this.state;
         return(
-            <div className="OpportunitiesTable">
-                <div className="opportunities-title">
-                    <h2> Oportunidade </h2>
-                </div>
+            <DefaultTable Title="Oportunidade">
                 {opportunity.map((item,key) =>
-                    <div key={key} className="opportunity">
+                    <div key={key}>
                         <p>
                             <b> {item.title} </b>
                             {item.text}
                         </p>
                     </div>
                 )}
-            </div>
+            </DefaultTable>
         )
     }
 }

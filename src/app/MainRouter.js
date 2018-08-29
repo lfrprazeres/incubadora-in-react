@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { 
     HomePage,
     Team,
-    Opportunities
+    Opportunities,
+    PatentDatabase
 } from '../pages';
 import {
 } from '../shared/layouts'
@@ -14,6 +15,7 @@ const MainRouter = () => (
             <Route exact path="/" component={HomePage} />
             <Route path="/equipe" component={Team} />
             <Route path="/oportunidades" component={Opportunities} />
+            <Route path="/banco-de-patentes" component={PatentDatabase} />
         </div>
     </Router>
 );

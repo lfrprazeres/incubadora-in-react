@@ -52,6 +52,7 @@
 .navBarMobile{
   align-items: center;
   background-color: white;
+  box-shadow: 0 8px 15px -6px black;
   display: flex;
   height: 70px;
   margin: 0 auto;

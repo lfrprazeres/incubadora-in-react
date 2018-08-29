@@ -1,0 +1,36 @@
+.patent-database-table{
+    border: 2px solid #ccc
+}
+
+.tabList{
+    border: 2px solid #ccc;
+    display: flex;
+    justify-content: center;
+}
+
+.tabList button{
+    background-color: white;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 8px auto;
+    outline: none;
+    padding: 20px 150px;
+    text-align: center;
+    transition: .2s ease;
+}
+
+.tabList button.true{
+    background-color: red;
+}
+
+.tabList button:hover{
+    border: 2px solid #000220;
+}
+.tabList button:active{
+    background-color: #000220;
+    color: white;
+    transform: translateY(5px);
+}
