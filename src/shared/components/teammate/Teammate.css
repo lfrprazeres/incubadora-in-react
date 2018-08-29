@@ -1,0 +1,55 @@
+.teammateContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 50px auto;
+    width: 85%;
+}
+
+.teammate{
+    display: flex;
+    margin: 20px;
+    width: calc(50% - 40px);
+}
+
+.teammate-image{
+    margin-right: 20px;
+}
+.teammate-image img{
+    border: 2px solid #001330;
+}
+
+.teammate .teammate-content div{
+    align-items: center;
+    display: flex;
+}
+.teammate .teammate-content > p,b{
+    margin: 10px 0;
+}
+.teammate .teammate-content .teammate-mail{
+    display: flex;
+    margin-bottom: 10px;
+}
+.teammate .teammate-content .teammate-mail div{
+    margin-right: 5px;
+}
+
+.teammate .teammate-content .teammate-lattes a{
+    align-items: center;
+    display: flex;
+}
+.teammate .teammate-content .teammate-lattes a img{
+    margin-right: 5px;
+}
+
+@media (max-width: 950px) {
+    .teammate{
+        width: 150px;
+    }
+}
+
+@media (max-width: 800px) {
+    .teammate{
+        width: 100%;
+    }
+}

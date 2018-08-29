@@ -1,7 +1,7 @@
 import HomePage from './home/Home';
-import Teste from './teste/Teste';
+import Team from './team/Team';
 
 export{
     HomePage,
-    Teste
+    Team
 }

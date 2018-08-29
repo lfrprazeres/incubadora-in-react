@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { 
     HomePage,
-    Teste,
+    Team,
 } from '../pages';
 import {
 } from '../shared/layouts'
@@ -11,7 +11,7 @@ const MainRouter = () => (
     <Router>
         <div>
             <Route exact path="/" component={HomePage} />
-            <Route path="/teste" component={Teste} />
+            <Route path="/equipe" component={Team} />
         </div>
     </Router>
 );
