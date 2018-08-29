@@ -16,7 +16,7 @@ class NavBar extends React.Component {
                 link: false,
                 subLink: [{
                     label: 'Quem Somos',
-                    href: '/quem-somos'
+                    href: '/'
                 },{
                     label: 'Regime Interno',
                     href: '/regime-interno'
