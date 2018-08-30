@@ -120,14 +120,17 @@ class NavBar extends React.Component {
                             <ul>
                             {navBar.map((item,key) =>
                                 <li key={key}>
-                                    {!item.href && <p>{item.label}<i class="fa fa-angle-down"></i></p>}
+                                    {!item.href && <p>{item.label}<i className="fa fa-angle-down"></i></p>}
                                     {item.href && <Link to={item.href}> {item.label}</Link>}
                                     {item.subLink && <div className="subLinkContainer">
-                                    {item.subLink.map((subLinkItem,subLinkKey) =>
-                                        <li key={subLinkKey}>
-                                            <Link to={subLinkItem.href} className="subLink"> {subLinkItem.label} </Link>
-                                        </li>
-                                    )}
+                                    <ul>
+                                        {item.subLink.map((subLinkItem,subLinkKey) =>
+                                            
+                                                <li key={subLinkKey}>
+                                                    <Link to={subLinkItem.href} className="subLink"> {subLinkItem.label} </Link>
+                                                </li>
+                                        )}
+                                    </ul>
                                 </div>}
                                 </li>
                             )}

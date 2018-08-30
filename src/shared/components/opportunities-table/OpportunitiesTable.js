@@ -63,7 +63,7 @@ class OpportunitiesTable extends React.Component{
         return(
             <DefaultTable Title="Oportunidade">
                 {opportunity.map((item,key) =>
-                    <div key={key}>
+                    <div key={key} className="tableContainer">
                         <p>
                             <b> {item.title} </b>
                             {item.text}

@@ -5,7 +5,9 @@
 .tabList{
     border: 2px solid #ccc;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    margin: 5px 0;
 }
 
 .tabList button{
@@ -19,7 +21,7 @@
     outline: none;
     padding: 20px 150px;
     text-align: center;
-    transition: .2s ease;
+    transition: .20s ease;
 }
 
 .tabList button.true{
@@ -33,4 +35,18 @@
     background-color: #000220;
     color: white;
     transform: translateY(5px);
+}
+
+.patentesContainer{
+    border: 2px solid #ccc;
+    margin: 5px auto;
+    padding: 5px;
+}
+
+.patentesContainer p{
+    margin: 15px 0;
+}
+
+.patentesContainer .resumeItem{
+    margin: 20px 0;
 }

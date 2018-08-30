@@ -68,7 +68,7 @@
   width: 100%;
 }
 
-.navBar .navBar-content > ul > li > .subLinkContainer > li {
+.navBar .navBar-content > ul > li > .subLinkContainer ul > li {
   background-color: white;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
@@ -77,16 +77,16 @@
   width: 100%;
 }
 
-.navBar .navBar-content > ul > li > .subLinkContainer > li:hover {
+.navBar .navBar-content > ul > li > .subLinkContainer ul > li:hover {
   background-color: rgb(160,207,254);
   
 
 }
-.navBar .navBar-content > ul > li > .subLinkContainer > li:hover a{
+.navBar .navBar-content > ul > li > .subLinkContainer ul > li:hover a{
   text-shadow: .2px .2px .2px 
 }
 
-.navBar .navBar-content > ul > li > .subLinkContainer > li > a{
+.navBar .navBar-content > ul > li > .subLinkContainer ul > li > a{
   color: #001330;
   display: flex;
   height: 100%;

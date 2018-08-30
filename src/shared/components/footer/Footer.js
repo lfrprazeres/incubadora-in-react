@@ -38,8 +38,8 @@ class Footer extends React.Component{
                     <div className="contactContainer">
                         {contact.map((item,key) =>
                             <div   className="contact" key={key}>
-                                <a href={item.href} className={item.class} target="_blank"> <i className={item.icon}> </i> </a>
-                                <a href={item.href} className={item.class} target="_blank"> <p> {item.label} </p> </a>
+                                <a href={item.href ? item.href : undefined} className={item.class} target="_blank"> <i className={item.icon}> </i> </a>
+                                <a href={item.href ? item.href : undefined} className={item.class} target="_blank"> <p> {item.label} </p> </a>
                             </div>
                         )}
                     </div>

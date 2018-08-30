@@ -1,0 +1,28 @@
+.question{
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 20px;
+    cursor: pointer;
+    color: #001330;
+    border-bottom: 1px solid #ccc;
+}
+.question:hover{
+    background-color: #ccc;
+}
+
+.question:active .answer{
+    display: block;
+}
+
+.answer{
+    display: block;
+    padding: 10px;
+    transition: all 0.3s ease;
+    padding: 10px;
+    margin: 0 0 10px 40px;
+    border-bottom: 1px solid #ccc;
+}
+
+.answer ul li{
+    margin: 15px 0;
+}

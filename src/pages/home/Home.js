@@ -6,9 +6,6 @@ import {
     Image,
     Footer
 } from '../../shared/components'
-import {
-    DefaultLayout
-} from '../../shared/layouts'
 class HomePage extends React.Component {
     constructor(props){
         super(props);
