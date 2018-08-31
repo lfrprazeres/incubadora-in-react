@@ -3,7 +3,7 @@ import Image from './image/Image';
 import Footer from './footer/Footer';
 import Teammate from './teammate/Teammate';
 import OpportunitiesTable from './opportunities-table/OpportunitiesTable';
-import PatentDatabaseTabs from './patent-database-tabs/PatentDatabaseTabs'
+import PatentDatabaseTabs from './patent-database-tabs/PatentDatabaseTabs';
 
 export{
     NavBar,
@@ -11,5 +11,6 @@ export{
     Footer,
     Teammate,
     OpportunitiesTable,
-    PatentDatabaseTabs
+    PatentDatabaseTabs,
+    
 }

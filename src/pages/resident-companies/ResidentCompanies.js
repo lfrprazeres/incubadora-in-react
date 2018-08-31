@@ -1,6 +1,9 @@
 import React from 'react'
+import './ResidentCompanies.css'
+import { Link } from 'react-router-dom'
 import {
-    DefaultLayout
+    DefaultLayout,
+    Companies
 } from '../../shared/layouts'
 import {
     Image
@@ -10,9 +13,9 @@ class ResidentCompanies extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            residents: [{
+            company: [{
                 logo: 'pauta_online.png',
-                company: 'Pauta Online',
+                name: 'Pauta Online',
                 paragraph: [{
                     text: 'é uma plataforma para educação online, desenhada para ajudar qualquer pessoa que detenha conhecimentos e deseje compartilhá-los - desde um professor ou especialista em determinada área, até grandes empresas ou Instituições. ',
                 },{
@@ -29,7 +32,7 @@ class ResidentCompanies extends React.Component{
                 }]
             },{
                 logo: 'biometric_it.png',
-                company: 'Biometric IT',
+                name: 'Biometric IT',
                 paragraph: [{
                     text: 'é uma empresa que desenvolve tecnologia de reconhecimento e identificação de pessoas por biometria para aplicações em segurança pública e privada. ',
                 },{
@@ -44,7 +47,7 @@ class ResidentCompanies extends React.Component{
                 }]
             },{
                 logo: 'pajesystem.jpg',
-                company: 'Paje System',
+                name: 'Paje System',
                 paragraph: [{
                     text: 'é um sistema de apoio a decisão médica. Mas acessível aos pacientes com acesso as suas informações de pressão arterial e glicemia por exemplo, através de gráficos e relatórios de orientações de cuidados médicos específicos. ',
                 },{
@@ -61,7 +64,7 @@ class ResidentCompanies extends React.Component{
                 }]
             },{
                 logo: 'R4-enterprise.png',
-                company: 'R4Enterprise',
+                name: 'R4Enterprise',
                 paragraph: [{
                     text: ', com a utilização de uma tecnologia inovadora para desenvolvimento de Software, pretende permitir ao usuário típico do Mercado, sem conhecimento de linguagens de programação, o fácil acesso a complexos procedimentos Estatísticos, de Engenharia e de Física. ',
                 },{
@@ -80,22 +83,34 @@ class ResidentCompanies extends React.Component{
         }
     }
     render(){
-        const { residents } = this.state
+        const { company } = this.state
         
         return(
             <DefaultLayout title="Empresas Residentes">
-                {residents.map((item,key) =>
+                {company.map((item,key) =>
                     <div key={key} className={((key + 1) % 2 == 0) ? 'company reverse' : 'company'}>
                         <div>
                             <Image source={item.logo}/>
                         </div>
                         {item.paragraph && <div className="company-content">
-                            {item.paragraph.map((pItem,pKey) =>
-                                <p key={pKey}> <b> {item.company} </b> {item.text} </p>
-                            )}
+                                {item.paragraph.map((pItem,pKey) =>
+                                    <div key={pKey}>
+                                        <p> {(pKey == 0) && <b> A {item.name} </b>} {pItem.text}</p>
+                                    </div>
+                                )}
+                                {item.partner.map((partnerItem,partnerKey) =>
+                                    <p key={partnerKey} className="partner">
+                                        {partnerItem.label}
+                                    </p>
+                                )}
                         </div>}
                     </div>
                 )}
+                <div className="afterCompanies">
+                        <p> Quer conhecer as empresas graduadas </p>
+                        <Link to="/empresas-graduadas"> Clique Aqui! </Link>
+                    </div>
+                
             </DefaultLayout>
         )
     }

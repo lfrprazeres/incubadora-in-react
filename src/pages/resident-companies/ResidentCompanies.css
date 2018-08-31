@@ -1,0 +1,41 @@
+.company{
+    color: #001330;
+    display: flex;
+    border-bottom: 2px solid #001330;
+    margin-bottom: 100px;
+    padding-bottom: 100px;
+}
+
+.company > div:first-child {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    margin: 0 30px;
+    text-align: left;
+}
+.reverse{
+    flex-direction: row-reverse;
+    text-align: right;
+}
+.company > div:last-child{
+    flex: 3
+}
+
+.company-content > div > p {
+    margin: 20px 0;
+}
+
+.afterCompanies{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+}
+.afterCompanies a{
+    color: #0645AD;
+    font-weight: 700;
+}
+.afterCompanies a:hover{
+    color: #0B0080;
+}
