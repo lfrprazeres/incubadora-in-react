@@ -5,9 +5,6 @@ import {
     DefaultLayout,
     Companies
 } from '../../shared/layouts'
-import {
-    Image
-} from '../../shared/components'
 
 class ResidentCompanies extends React.Component{
     constructor(props){
@@ -24,8 +21,6 @@ class ResidentCompanies extends React.Component{
                     text: 'A Pauta Online foi selecionada pela FAPERJ, através de edital de subvenção, como um dos projetos inovadores do Estado do Rio de Janeiro.',
                 }],
                 partner: [{
-                    label: 'Sócios:'
-                },{
                     label: 'Marcilene Scantamburlo Fonseca '
                 },{
                     label: 'Jorge Valardan'
@@ -41,8 +36,6 @@ class ResidentCompanies extends React.Component{
                     text: 'Nossos produtos também têm muita expertise policial embarcada, e se constituem na melhor solução para equipar as Superintendências de Polícia Técnica das Polícias Civis, e para os Departamentos de Seguranças de empresas públicas e privadas.',
                 }],
                 partner: [{
-                    label: 'Sócio:'
-                },{
                     label: 'Mauricio Carvalho Xavier'
                 }]
             },{
@@ -56,8 +49,6 @@ class ResidentCompanies extends React.Component{
                     text: 'Em um terceiro nível, um gestor de saúde (patrocinador do custeio da assistência à saúde) de secretaria municipal ou estadual de saúde, ou um gestor de planos de saúde, onde a otimização de desempenho profissional maximizado por identificar complicações cardiovasculares em sua fase inicial terão um custeio menor, assim fica caracterizado a minimização das complicações e consequente redução dos custos assistenciais. Temos a esperança de sensibilizar aos técnicos do Ministério da Saúde do Brasil, para a relevância deste projeto.',
                 }],
                 partner: [{
-                    label: 'Sócios:'
-                },{
                     label: 'Boaz Ramos de Avellar Junior'
                 },{
                     label: 'David Leite de Avellar'
@@ -73,8 +64,6 @@ class ResidentCompanies extends React.Component{
                     text: 'Assim disponibilizamos para o usuário típico do Mercado, nos aplicativos mais utilizados pelo Mercado e com toda a facilidade de acesso e de usabilidade destes aplicativos, o potencial de conseguir utilizar procedimentos que foram desenvolvidos por uma linguagem científica.',
                 }],
                 partner: [{
-                    label: 'Sócios:'
-                },{
                     label: 'Marcos Huber Mendes'
                 },{
                     label: 'André Gustavo Guimarães da Cunha'
@@ -83,33 +72,31 @@ class ResidentCompanies extends React.Component{
         }
     }
     render(){
-        const { company } = this.state
-        
         return(
             <DefaultLayout title="Empresas Residentes">
-                {company.map((item,key) =>
-                    <div key={key} className={((key + 1) % 2 == 0) ? 'company reverse' : 'company'}>
-                        <div>
-                            <Image source={item.logo}/>
-                        </div>
-                        {item.paragraph && <div className="company-content">
-                                {item.paragraph.map((pItem,pKey) =>
-                                    <div key={pKey}>
-                                        <p> {(pKey == 0) && <b> A {item.name} </b>} {pItem.text}</p>
-                                    </div>
-                                )}
-                                {item.partner.map((partnerItem,partnerKey) =>
-                                    <p key={partnerKey} className="partner">
-                                        {partnerItem.label}
-                                    </p>
-                                )}
-                        </div>}
-                    </div>
+                {this.state.company.map((item,key) =>
+                    <Companies 
+                        key={key}
+                        className={((key + 1) % 2 === 0) ? 'company reverse' : 'company'}
+                        image={item.logo}
+                        paragraph={
+                            item.paragraph.map((pItem,pKey) =>
+                                <div key={pKey}>
+                                    <p> {(pKey === 0) && <b> A {item.name} </b>} {pItem.text}</p>
+                                </div>
+                        )}
+                        partner={
+                            item.partner.map((partnerItem,partnerKey) =>
+                                <p key={partnerKey} className="partner">
+                                    {partnerItem.label}
+                                </p>
+                        )}
+                    />
                 )}
                 <div className="afterCompanies">
-                        <p> Quer conhecer as empresas graduadas </p>
-                        <Link to="/empresas-graduadas"> Clique Aqui! </Link>
-                    </div>
+                    <p> Quer conhecer as empresas graduadas </p>
+                    <Link to="/empresas-graduadas"> Clique Aqui! </Link>
+                </div>
                 
             </DefaultLayout>
         )

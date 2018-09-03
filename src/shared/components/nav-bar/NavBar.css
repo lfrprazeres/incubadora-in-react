@@ -38,8 +38,6 @@
   width: 170px;
 }
 .navBar .navBar-content > ul > li:hover{
-  border-bottom: 3px solid rgb(0,19,48);
-  padding-top: 3px;
   z-index: 999;
 }
 
@@ -49,6 +47,9 @@
   height: 100%;
   justify-content: center;
   width: 100%;
+}
+.navBar .navBar-content > ul > li > a:last-child:hover{
+  border-bottom: 5px solid rgb(0,19,48);
 }
 .navBar .navBar-content > ul > li > a:hover{
   text-shadow: .2px .2px .2px ;
@@ -62,9 +63,10 @@
 }
 
 .navBar .navBar-content > ul > li > .subLinkContainer{
+  border-top: 5px solid rgb(0,19,48);
   display: none;
   position: absolute;
-  top: 107%;
+  top: 95%;
   width: 100%;
 }
 

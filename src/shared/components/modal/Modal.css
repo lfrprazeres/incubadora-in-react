@@ -1,0 +1,27 @@
+.modal .modal-content{
+    position: absolute
+}
+
+
+.open{
+    position: absolute
+}
+.company .modalOpen{
+    display: initial;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+.company .modalClosed{
+    display: none;
+}
+
+.modal-overlayer{
+    background-color: rgba(0,0,0,.2);
+    height: 100%;
+    width: 100%;
+}
+
+.modal-button{
+    border: none
+}

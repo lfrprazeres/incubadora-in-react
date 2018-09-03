@@ -4,6 +4,8 @@ import Footer from './footer/Footer';
 import Teammate from './teammate/Teammate';
 import OpportunitiesTable from './opportunities-table/OpportunitiesTable';
 import PatentDatabaseTabs from './patent-database-tabs/PatentDatabaseTabs';
+import ModalButton from './modal/ModalButton';
+import Modal from './modal/Modal';
 
 export{
     NavBar,
@@ -12,5 +14,7 @@ export{
     Teammate,
     OpportunitiesTable,
     PatentDatabaseTabs,
+    ModalButton,
+    Modal
     
 }

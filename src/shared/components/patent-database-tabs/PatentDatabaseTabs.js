@@ -126,7 +126,7 @@ class PatentDatabaseTabs extends React.Component{
     }
     activePatent(e){
         e.preventDefault();
-        if(this.tabFor == 'Patentes'){
+        if(this.tabFor === 'Patentes'){
             this.setState({
                 activePatent: !this.state.activePatent
              })

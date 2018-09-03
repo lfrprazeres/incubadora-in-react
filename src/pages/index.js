@@ -4,6 +4,7 @@ import Opportunities from './opportunities/Opportunities';
 import PatentDatabase from './patent-database/PatentDatabase';
 import FrequentQuestions from './frequent-questions/FrequentQuestions';
 import ResidentCompanies from './resident-companies/ResidentCompanies';
+import GraduateCompanies from './graduate-companies/GraduateCompanies';
 
 export{
     HomePage,
@@ -11,5 +12,6 @@ export{
     Opportunities,
     PatentDatabase,
     FrequentQuestions,
-    ResidentCompanies
+    ResidentCompanies,
+    GraduateCompanies
 }

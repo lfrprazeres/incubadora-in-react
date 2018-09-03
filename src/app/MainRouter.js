@@ -6,7 +6,8 @@ import {
     Opportunities,
     PatentDatabase,
     FrequentQuestions,
-    ResidentCompanies
+    ResidentCompanies,
+    GraduateCompanies
 } from '../pages';
 import {
 } from '../shared/layouts'
@@ -20,6 +21,7 @@ const MainRouter = () => (
             <Route path="/banco-de-patentes" component={PatentDatabase} />
             <Route path="/perguntas-frequentes" component={FrequentQuestions} />
             <Route path="/empresas-residentes" component={ResidentCompanies} />
+            <Route path="/empresas-graduadas" component={GraduateCompanies} />
         </div>
     </Router>
 );

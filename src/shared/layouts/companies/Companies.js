@@ -1,32 +1,35 @@
 import React from 'react'
-import {Image} from '../../components'
+import {
+    Image,
+    ModalButton,
+    Modal
+} from '../../components'
+import './Companies.css'
 
-class Companies extends React.Component{
-    render(){
-        const {company} = this.props
-        return(
-            <div>
-                {this.props.company.map((item,key) =>
-                    <div key={key} className={((key + 1) % 2 == 0) ? 'company reverse' : 'company'}>
-                        <div>
-                            <Image source={item.logo}/>
-                        </div>
-                        {item.paragraph && <div className="company-content">
-                                {item.paragraph.map((pItem,pKey) =>
-                                    <div key={pKey}>
-                                        <p> {(pKey == 0) && <b> A {item.company} </b>} {pItem.text}</p>
-                                    </div>
-                                )}
-                                {item.partner.map((partnerItem,partnerKey) =>
-                                    <p key={partnerKey} className="partner">
-                                        {partnerItem.label}
-                                    </p>
-                                )}
-                        </div>}
-                    </div>
-                )}
-            </div>
-        )
-    }
-}
+
+const Companies = ({image,paragraph,partner,className,contact,open,toOpen,toClose}) => (
+    <div className={className}>
+        <ModalButton 
+        open={open}
+        openModal={
+            <Image source={image}/>
+        }
+        toOpen={toOpen}
+        />
+        <Modal className={open ? "modal-content modalOpen" : "modal-content modalClosed"}>
+                <span className="toClose" toClose={toClose} />
+                <div>
+                    {paragraph}
+                </div>
+                <div>
+                    <b> Sócios:  </b>
+                    {partner}
+                </div>
+                <div>
+                    <b> Contatos: </b>
+                    {contact}
+                </div>
+        </Modal>
+    </div>
+)
 export default Companies
