@@ -157,7 +157,7 @@ class GraduateCompanies extends React.Component{
     }
     OpenModal = () => {
         this.setState({ 
-            open: !this.state.open
+            openIt: !this.state.open
         });
     };
     CloseModal = () => {
